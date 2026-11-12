@@ -1,42 +1,61 @@
 # Verificare TVA · ONE
 
-**Ediția ONE 1.0.4.1 · Made by SAVI-NIMS for ONE United Properties**
+Made by **SAVI-NIMS** for **ONE United Properties**
 
-[Descarcă ultima versiune ONE / Download latest ONE edition](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest)
+[Română](#română) · [English](#english) · [Installation / Instalare](INSTALLARE.md)
+
+| Platform / Platformă | Download / Descarcă |
+|---|---|
+| Windows 10/11 x64 | [Windows ZIP](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/VerificareTVA-ONE-Windows-x64.zip) |
+| Mac Apple Silicon, macOS 13+ | [Mac DMG](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/VerificareTVA-ONE-Mac-AppleSilicon.dmg) |
+| Excel template / Șablon Excel | [Model_Import_Companii.xlsx](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/Model_Import_Companii.xlsx) |
+
+[Latest release / Ultima versiune](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest)
 
 ## Română
 
-Aplicație pentru verificarea statutului TVA și a inactivității fiscale a societăților românești, direct la ANAF. Ediția ONE păstrează funcțiile versiunii 1.0.4 și adaugă identitatea vizuală SAVI-NIMS și One United Properties.
+Ediția ONE, cu aceleași funcții ca versiunea generală 2.0.1. Link separat destinat distribuirii interne. Este public și poate fi redistribuit.
 
-- **CUI (recomandat):** verificare individuală directă la ANAF.
-- **Denumire societate:** identificare prin CUIScan, alegerea explicită a firmei, apoi verificare la ANAF.
-- **Excel:** import din două coloane, `Denumire societate` și `CUI`, până la 100 de rânduri.
-- **Raport:** rezultate colorate, comentarii privind CUI lipsă și diferențele de denumire, export Excel și dovezi JSON.
+**Funcții incluse:** două instrumente distincte: **Verificare TVA** pentru verificarea fiscală rapidă și **Raport companie / CUI** pentru un raport detaliat din datele publice ANAF. Introduceți **CUI-ul (recomandat)** sau căutați denumirea și alegeți explicit societatea. Raportul include profilul companiei, registre fiscale, bilanțuri multianuale, grafice, explicații ușor de înțeles și export **PDF + Excel + dovezi JSON**. [Instrucțiuni](INSTALLARE.md#română).
 
-Este destinată distribuirii către echipa ONE. **Linkul este public, fără cont GitHub**, și poate fi redistribuit. Nu încărcați aici fișierele clienților. Repository-ul conține doar documentație și pachetele distribuibile. Codul sursă rămâne privat.
+Aplicație desktop pentru verificarea **înregistrării TVA și a inactivității fiscale ANAF** a companiilor românești. Încărcați un Excel cu **Denumire societate** și **CUI**, maximum 100 de companii per foaie. Exportați un raport colorat, cu **COMENTARII** pentru date lipsă și diferențe de denumire.
 
-| Descărcare | Platformă |
-|---|---|
-| [Windows ZIP](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/VerificareTVA-ONE-Windows-x64.zip) | Windows x64 |
-| [Mac DMG](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/VerificareTVA-ONE-Mac-AppleSilicon.dmg) | Mac Apple Silicon |
-| [Șablon Excel](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/Model_Import_Companii.xlsx) | Două coloane, fără date de clienți |
+Descărcarea este gratuită, fără cont GitHub. Interfața aplicației este în română. Nu trebuie instalate Python sau Excel pentru rularea aplicației.
 
-**Instalare:** pe Windows, extrageți complet ZIP-ul și deschideți `VerificareTVA-ONE.exe`, păstrând dosarul `_internal`. Pe Mac, copiați `VerificareTVA-ONE.app` din DMG în Applications. Ediția ONE poate fi instalată alături de aplicația generală `VerificareTVA`. Actualizarea este manuală.
+**Windows:** extrageți complet ZIP-ul, rulați `Test instalare.cmd`, apoi `VerificareTVA-ONE.exe`. Păstrați dosarul `_internal` alături de executabil. **Mac:** deschideți DMG-ul și copiați `VerificareTVA-ONE.app` în Applications. Pachetul este doar pentru Apple Silicon.
 
-**Windows nu este semnat comercial, iar Mac nu este notarizat Apple.** Consultați [instrucțiunile RO/EN de instalare, avertizările de securitate și verificarea IT](INSTALLARE.md). Nu dezactivați protecțiile sistemului. Politicile organizației pot necesita intervenția IT.
+**Avertizări de securitate:** versiunea nu are semnare comercială Windows sau notarizare Apple. Pentru avertizarea SmartScreen de aplicație nerecunoscută: **More info → Run anyway**, numai dacă aveți încredere în sursă și opțiunea este disponibilă. Pe Mac, după blocarea dezvoltatorului neverificat: **System Settings → Privacy & Security → Open Anyway**, dacă alegeți să autorizați aplicația.
 
-Această ediție are un link separat. [Versiunea generală 1.0.4](https://github.com/victor-savinims-legal/anaf-vat-checker-downloads/releases/tag/v1.0.4) rămâne disponibilă la linkul ei existent.
+**Nu ignorați alertele de malware sau fișiere deteriorate.** Dacă Smart App Control sau politica organizației blochează rularea, consultați IT. Nu dezactivați protecțiile sistemului. [Instrucțiuni complete în română](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/blob/main/INSTALLARE.md#română).
+
+Excelul original rămâne nemodificat. La ANAF ajung CUI, data fiscală și anii bilanțurilor solicitați. Fluxul TVA salvează `Raport_TVA.xlsx` și dovezi JSON. Raportul detaliat salvează `Raport_Companie.pdf`, `Raport_Companie.xlsx` și dovezi JSON. Denumirea este transmisă CUIScan numai când alegeți această metodă de identificare. Datele lipsă sunt marcate explicit. Aplicația nu face verificare directă ONRC și nu stabilește tratamentul TVA al tranzacției.
 
 ## English
 
-The **ONE edition 1.0.4.1** checks Romanian companies' VAT registration and fiscal inactivity directly with ANAF. It retains the features of version 1.0.4 and adds SAVI-NIMS and One United Properties branding.
+ONE edition, with the same features as general version 2.0.1. Separate link intended for internal sharing. It is public and can be redistributed.
 
-Search by **CUI (recommended)** or company name, or import an Excel file with `Denumire societate` and `CUI` columns, up to 100 rows. Name lookup uses CUIScan to identify candidates. You must choose the company before its CUI is checked with ANAF. Results can be exported with comments and supporting JSON evidence.
+**Included features:** two distinct workflows: **Verificare TVA** for quick fiscal checks and **Raport companie / CUI** for a detailed report using public ANAF data. Enter the **CUI (recommended)** or search by name and explicitly select the company. The report includes a company profile, fiscal registers, multiyear financial data, charts, plain-language explanations and **PDF + Excel + JSON evidence** export. [Instructions](INSTALLARE.md#english).
 
-This separate edition is intended for the ONE team. **Downloads are public and require no GitHub account.** The link can be forwarded. Do not upload client files to this repository. The source code remains private.
+A desktop app that checks **ANAF VAT registration and fiscal inactivity** for Romanian companies. Upload an Excel file with **Denumire societate** (company name) and **CUI** (Romanian tax identifier), for up to 100 companies per sheet. Export a colour-coded report with **COMENTARII** (comments) for missing information and company-name differences.
 
-Use the Windows, Mac or Excel links above. Extract the complete Windows ZIP before running `VerificareTVA-ONE.exe`. On Mac, copy `VerificareTVA-ONE.app` into Applications. Both editions can coexist. **No commercial Windows signature or Apple notarization is included.** Read the [bilingual installation and IT instructions](INSTALLARE.md) before installation.
+Free download, with no GitHub account required. The app interface is in Romanian. Python and Excel are not required to run it.
 
-The result covers VAT registration and fiscal inactivity at the indicated date. It does not determine a transaction's VAT treatment. The public 1.0.4 edition and its download link remain separate.
+**Windows:** extract the whole ZIP, run `Test instalare.cmd`, then open `VerificareTVA-ONE.exe`. Keep the `_internal` folder beside the executable. **Mac:** open the DMG and copy `VerificareTVA-ONE.app` into Applications. This package is for Apple Silicon only.
 
-![Interfața ediției ONE / ONE edition interface](assets/interfata-one.png)
+**Security warnings:** this release has no commercial Windows signing or Apple notarization. For an unrecognized-app SmartScreen warning: **More info → Run anyway**, only if you trust the source and the option is available. On Mac, after a launch blocked because the developer is unverified: **System Settings → Privacy & Security → Open Anyway**, if you choose to authorize the app.
+
+**Do not dismiss malware or damaged-file alerts.** If Smart App Control or an organization policy blocks execution, contact IT. Do not disable system protection. [Full English instructions](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/blob/main/INSTALLARE.md#english).
+
+The original Excel stays unchanged. ANAF receives the CUI, fiscal date and requested financial years. VAT checks save `Raport_TVA.xlsx` and JSON evidence. Detailed reports save `Raport_Companie.pdf`, `Raport_Companie.xlsx` and JSON evidence. Names go to CUIScan only when that identification method is used. Missing data is explicitly marked. The app does not directly query ONRC or determine a transaction’s VAT treatment.
+
+![Interfața aplicației: verificare TVA și raport companie](assets/interfata-2.0.1.1.png)
+
+## Releases / Versiuni
+
+Linkurile permanente indică ultima versiune publicată. Aplicația nu se actualizează automat. / Permanent links point to the latest published release. The app does not update automatically.
+
+Codul sursă rămâne privat. Acest repository conține documentație și descărcări. Arhivele „Source code” generate de GitHub conțin doar documentația, nu aplicația. / The app source remains private. This repository contains documentation and downloads. GitHub's automatic “Source code” archives contain documentation, not the app.
+
+[SHA256SUMS.txt](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/SHA256SUMS.txt) · [VALIDATION.json](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/VALIDATION.json)
+
+Ghidul detaliat include documentația oficială Microsoft și Apple. / The detailed guide links to official Microsoft and Apple guidance.

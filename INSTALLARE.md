@@ -1,4 +1,6 @@
-# Verificare TVA 1.0.4.1: instalare / installation
+# Verificare TVA 2.0.1.1: instalare / installation
+
+Ediția **ONE 2.0.1.1**, cu aceleași funcții ca 2.0.1. Distribuire prin link separat, public fără cont GitHub. / **ONE edition 2.0.1.1**, with the same features as 2.0.1. Separate public link, no GitHub account required.
 
 Made by **SAVI-NIMS** for **ONE United Properties**
 
@@ -7,10 +9,6 @@ Made by **SAVI-NIMS** for **ONE United Properties**
 Actualizat la 12 noiembrie 2026. / Updated 12 November 2026.
 
 ## Română
-
-**Ediția ONE 1.0.4.1**, destinată distribuirii în echipă, are aceleași funcții ca versiunea publică 1.0.4. Linkul separat este public, fără autentificare. Nu este un spațiu de stocare pentru fișierele clienților.
-
-Aplicația se numește **VerificareTVA-ONE** și poate fi păstrată alături de **VerificareTVA**. Instalați ediția ONE într-un dosar separat pe Windows sau ca aplicație distinctă în Applications pe Mac.
 
 ### Descărcare și cerințe
 
@@ -55,6 +53,22 @@ Denumirile diferă în funcție de limba și versiunea macOS. Butonul poate apă
 
 **Opriți-vă dacă mesajul spune „will damage your computer”, indică malware sau spune că aplicația este deteriorată.** Pentru un fișier deteriorat, descărcați din nou din sursa oficială și comparați SHA256. Dacă problema persistă, solicitați verificarea pachetului. Nu folosiți comenzi pentru eliminarea carantinei sau dezactivarea Gatekeeper.
 
+### Două moduri de lucru
+
+- **Verificare TVA**: verificare rapidă a TVA și inactivității fiscale, după CUI/denumire sau prin Excel cu până la 100 de societăți. Exportul rămâne `Raport_TVA.xlsx` + dovezi JSON.
+- **Raport companie / CUI**: raport detaliat pentru o singură societate, identificată prin CUI (recomandat) sau prin denumire și selecție explicită. Se colectează datele publice ANAF de identificare, înregistrare fiscală, RO e-Factura și raportările financiare anuale disponibile.
+
+### Raport companie: PDF și Excel
+
+1. Deschideți secțiunea **Raport companie / CUI** și introduceți CUI-ul sau căutați denumirea. La căutarea după denumire, alegeți firma după CUI, județ și localitate.
+2. Alegeți data de referință fiscală (implicit astăzi, fără date viitoare) și intervalul bilanțurilor. Implicit sunt ultimii cinci ani calendaristici încheiați. Datele financiare pot lipsi pentru unii ani.
+3. Porniți colectarea și urmăriți progresul. Datele sunt solicitate pe rând, cu respectarea limitelor ANAF. O indisponibilitate este afișată separat și nu devine un rezultat fiscal negativ.
+4. Salvați raportul într-un dosar ales. Aplicația creează un subdosar nou cu **Raport_Companie.pdf**, **Raport_Companie.xlsx** și **Dovezi_ANAF.json**. Deschideți PDF-ul, Excel-ul sau dosarul din butoanele dedicate.
+
+Raportul include grafice multianuale, valori exacte, explicații „Cum citim aceste date”, surse și limite. Antetul poartă „Free report powered by:” și logo-ul SAVI-NIMS. Observațiile sunt calcule explicabile, nu ratinguri de credit sau concluzii privind insolvența. Semnificația unui indicator depinde și de activitatea societății.
+
+**Citiți perioadele:** statutul fiscal privește data selectată, bilanțurile privesc anii indicați, iar datele generale nu sunt garantate ca instantanee istorice. Lipsa datelor nu este zero și nu dovedește că societatea nu a depus bilanț. Datoriile agregate nu înseamnă datorii fiscale restante. Registrul RO e-Factura nu furnizează facturile societății. Raportul nu stabilește tratamentul TVA al tranzacției.
+
 ### Căutare manuală după CUI sau denumire
 
 Pe prima pagină sunt două câmpuri distincte. Este suficientă oricare dintre metode, fără fișier Excel. **Recomandăm CUI-ul** pentru identificare exactă.
@@ -89,9 +103,9 @@ Completați de la rândul 2, maximum 100 de rânduri de companii per foaie. CUI 
 
 O celulă CUI goală, `-`, text neacceptat sau formulă primește roșu și **CUI nu este prezent**. La diferențe de denumire, **COMENTARII** arată numele din Excel și informația returnată de ANAF.
 
-Exportul creează un dosar nou cu `Raport_TVA.xlsx` și `Dovezi_ANAF.json`. Excelul original rămâne nemodificat. Aplicația trimite către ANAF doar CUI și data, prin HTTPS. Nu încarcă Excelul într-un serviciu propriu și nu include telemetrie. Rapoartele conțin date despre clienți: alegeți un dosar cu acces adecvat, inclusiv dacă este sincronizat în cloud.
+Exportul creează un dosar nou cu `Raport_TVA.xlsx` și `Dovezi_ANAF.json`. Excelul original rămâne nemodificat. Aplicația trimite către ANAF CUI, data fiscală și, pentru bilanțuri, anul solicitat, prin HTTPS. Nu încarcă Excelul într-un serviciu propriu și nu include telemetrie. Rapoartele conțin date despre clienți: alegeți un dosar cu acces adecvat, inclusiv dacă este sincronizat în cloud.
 
-Rezultatul acoperă numai TVA și inactivitatea fiscală, nu ONRC, VIES sau tratamentul TVA al unei tranzacții.
+Fluxul «Verificare TVA» acoperă numai TVA și inactivitatea fiscală. Raportul companiei adaugă informațiile publice ANAF descrise mai sus. Niciun flux nu face verificare directă ONRC/VIES și nu stabilește tratamentul TVA al tranzacției.
 
 ### Actualizare și verificare IT
 
@@ -102,15 +116,12 @@ Pentru IT:
 - Comparați SHA256, verificați politica de execuție și scanați pachetul cu protecția organizației.
 - Pe Windows, rulați `Test instalare.cmd` din dosarul extras și verificați pornirea interfeței pe configurația țintă.
 - Testați importul fără date confidențiale: un CUI cunoscut, unul lipsă și o denumire diferită. Comparați rezultatul cu ANAF pentru aceeași dată.
-- Verificați exportul ambelor fișiere și faptul că Excelul original rămâne nemodificat. Lipsa rețelei nu trebuie să producă un rezultat verde.
+- Testați și raportul detaliat: data fiscală, intervalul bilanțurilor, graficele, explicațiile, logo-ul, PDF/Excel/JSON și cazul cu un serviciu indisponibil.
+- Verificați exportul ambelor fișiere din fluxul TVA și faptul că Excelul original rămâne nemodificat. Lipsa rețelei nu trebuie să producă un rezultat verde.
 - Pentru proxy/certificate folosiți configurația aprobată de IT. Nu dezactivați verificarea TLS. Endpoint: `https://webservicesp.anaf.ro/api/PlatitorTvaRest/v9/tva`, HTTPS POST, port 443.
-- Testele automate 1.0.4.1 au rulat pe Windows Server 2025 x64 și macOS 15 ARM64. Nu certifică fiecare configurație Windows 10/11 sau Mac. Dovezile sunt în `VALIDATION.json` din release.
+- Dovezile testelor automate pentru această versiune indică mediile Windows Server 2025 x64 și macOS 15 ARM64. Nu certifică fiecare configurație Windows 10/11 sau Mac. Dovezile sunt în `VALIDATION.json` din release.
 
 ## English
-
-**ONE edition 1.0.4.1** is intended for team distribution and has the same features as public version 1.0.4. Its separate download link is public and requires no account. It is not a storage location for client files.
-
-The app is named **VerificareTVA-ONE** and can coexist with **VerificareTVA**. Install the ONE edition in its own Windows folder or as a separate app in Applications on Mac.
 
 ### Downloads and requirements
 
@@ -155,6 +166,22 @@ Labels vary by macOS version and language. The button may appear only after a re
 
 **Stop if the warning says “will damage your computer”, reports malware, or says the app is damaged.** For a damaged download, download again from the official source and compare SHA256. If it persists, request a package review. Do not run commands to remove quarantine or disable Gatekeeper.
 
+### Two distinct workflows
+
+- **Verificare TVA** (VAT check): quick VAT and fiscal inactivity checks by CUI/name or an Excel list of up to 100 companies. Export remains `Raport_TVA.xlsx` plus JSON evidence.
+- **Raport companie / CUI** (Company report): a detailed report for one company identified by CUI (recommended), or by name followed by explicit company selection. It retrieves public ANAF identification, fiscal registration, RO e-Factura registry and available annual financial information.
+
+### Company report: PDF and Excel
+
+1. Open **Raport companie / CUI**, enter the CUI or search by company name. When searching by name, select the correct company using its CUI, county and locality.
+2. Choose the fiscal reference date (today by default, never a future date) and financial year range. The default is the last five completed calendar years. Some financial years may be unavailable.
+3. Start collection and follow progress. Requests are sequential and rate limited. An unavailable source is shown separately, never as a negative fiscal finding.
+4. Save to a folder you choose. A new subfolder contains **Raport_Companie.pdf**, **Raport_Companie.xlsx** and **Dovezi_ANAF.json**. Dedicated buttons open the PDF, workbook or output folder.
+
+The report contains multiyear charts, exact values, plain-language explanation boxes, sources and limitations. The header reads “Free report powered by:” alongside the SAVI-NIMS logo. Observations follow explicit calculations, not a credit rating or insolvency model. Business context matters when interpreting the indicators.
+
+**Check the dates:** fiscal status uses the selected date, financial figures belong to their stated years, and general identification fields are not guaranteed historical snapshots. Missing data is not zero and is not proof of a missing filing. Aggregate liabilities are not tax arrears. The RO e-Factura registry does not provide the company's invoices. The report does not determine a transaction's VAT treatment.
+
 ### Manual search by CUI or company name
 
 The home screen has two separate fields. Either method works without an Excel file. **CUI is recommended** for exact identification.
@@ -191,9 +218,9 @@ The app interface is in Romanian:
 
 A blank CUI, `-`, unaccepted text or formula is red with **CUI nu este prezent** (CUI is missing). For name differences, **COMENTARII** shows the Excel name and ANAF information.
 
-Export creates a new folder with `Raport_TVA.xlsx` and `Dovezi_ANAF.json`. The original Excel stays unchanged. The app sends only CUI and the check date to ANAF over HTTPS. It does not upload the workbook to its own service or include telemetry. Reports contain client data: choose a folder with appropriate access, including cloud-synced folders.
+Export creates a new folder with `Raport_TVA.xlsx` and `Dovezi_ANAF.json`. The original Excel stays unchanged. The app sends CUI, the fiscal date and, for annual reports, the requested year to ANAF over HTTPS. It does not upload the workbook to its own service or include telemetry. Reports contain client data: choose a folder with appropriate access, including cloud-synced folders.
 
-Scope is VAT and fiscal inactivity only, excluding ONRC, VIES and transaction tax treatment.
+The VAT-check workflow covers VAT and fiscal inactivity. The company report adds the public ANAF information described above. Neither workflow directly queries ONRC/VIES or determines transaction tax treatment.
 
 ### Updates and IT acceptance
 
@@ -204,9 +231,10 @@ For IT:
 - Compare SHA256, review application-control policy and scan the package with the organization's protection tools.
 - On Windows, run `Test instalare.cmd` from the extracted folder and check the interface launches on the target device.
 - Test import without confidential data: a known CUI, a missing CUI and a different company name. Compare results against ANAF for the same date.
-- Check both output files export and the original Excel remains unchanged. An unavailable network must not produce a green result.
+- Also test the detailed report: fiscal date, financial years, charts, explanations, logo, PDF/Excel/JSON output and a source outage.
+- Check both VAT-workflow output files export and the original Excel remains unchanged. An unavailable network must not produce a green result.
 - Use IT-approved proxy/certificate configuration. Keep TLS verification enabled. Endpoint: `https://webservicesp.anaf.ro/api/PlatitorTvaRest/v9/tva`, HTTPS POST, port 443.
-- Version 1.0.4.1 automated tests ran on Windows Server 2025 x64 and macOS 15 ARM64. They do not certify every Windows 10/11 or Mac configuration. See the release's `VALIDATION.json`.
+- Automated validation for this version identifies the Windows Server 2025 x64 and macOS 15 ARM64 build environments. They do not certify every Windows 10/11 or Mac configuration. See the release's `VALIDATION.json`.
 
 ## SHA256: verificare opțională / optional verification
 
@@ -229,3 +257,7 @@ shasum -a 256 "$HOME/Downloads/VerificareTVA-ONE-Mac-AppleSilicon.dmg"
 [SHA256SUMS.txt](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/SHA256SUMS.txt) · [VALIDATION.json](https://github.com/victor-savinims-legal/anaf-vat-checker-one-downloads/releases/latest/download/VALIDATION.json)
 
 Licențele bibliotecilor sunt în `THIRD_PARTY_NOTICES.md` și `licenses` din runtime. / Library licenses are in `THIRD_PARTY_NOTICES.md` and the runtime's `licenses` folder.
+
+### Conexiuni pentru raport / Report connections
+
+HTTPS port 443: `webservicesp.anaf.ro/api/PlatitorTvaRest/v9/tva` (POST), `webservicesp.anaf.ro/api/registruroefactura/v1/interogare` (POST), `webservicesp.anaf.ro/bilant` (GET, CUI + an/year). Căutarea după denumire / Name discovery: `cuiscan.ro/api.php`. Fără credențiale SPV / No SPV credentials.
